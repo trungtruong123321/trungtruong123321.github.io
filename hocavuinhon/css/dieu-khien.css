@@ -1,0 +1,34 @@
+/* Hai nút nằm bên phải tiêu đề, phía trên vùng bơi. */
+.dieu-khien {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+.dieu-khien button {
+  border: 1px solid #627f75;
+  border-radius: 20px;
+  background: #f6f6ea;
+  color: #163e3c;
+  font: 600 14px/1.2 var(--chu);
+  padding: 9px 14px;
+  cursor: pointer;
+}
+.dieu-khien #nut-nhac { background: #164541; color: white; }
+.dieu-khien button:hover { border-color: #163e3c; }
+.dieu-khien button:focus-visible { outline: 3px solid #bf6046; outline-offset: 2px; }
+.khung-bien {
+  background-image: url("../images/nen/ran-san-ho.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.khung-bien .ran-xa, .khung-bien .ran-gan { display: none; }
+.dau-song { display: none; }
+@media (max-width: 930px) {
+  .thanh-dieu-huong { flex-wrap: wrap; padding-block: 10px; gap: 9px; }
+  .thanh-dieu-huong nav { order: 3; flex-basis: 100%; }
+}
+@media (max-width: 400px) {
+  .dieu-khien { gap: 4px; }
+  .dieu-khien button { padding: 8px 9px; font-size: 13px; }
+}

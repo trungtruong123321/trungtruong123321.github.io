@@ -1,0 +1,155 @@
+/* Mặt nước, rạn đá và đáy cát được vẽ bằng các lớp CSS. */
+.khung-bien {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 2.5;
+  background:
+    radial-gradient(ellipse at 19% -18%, #ffffd8 1%, #d5f5d58a 23%, transparent 53%),
+    linear-gradient(169deg, #98dfcf 0%, #64c1be 26%, #338f9f 56%, #1f657d 80%, #194a65 100%);
+}
+
+.bia .khung-bien { aspect-ratio: 1.84; }
+
+.tia-nang, .van-nuoc, .hat-sang, .ran-xa, .ran-gan { position: absolute; pointer-events: none; }
+.tia-nang {
+  inset: -9% -12% 10%;
+  background: repeating-linear-gradient(113deg, transparent 0 5%, #faffdb27 6%,
+    transparent 9% 14%, #ffffe31f 15% 17%, transparent 19% 27%);
+  mask-image: linear-gradient(#000 0%, #0009 50%, transparent);
+  animation: nuoc-troi 15s ease-in-out infinite alternate;
+}
+.van-nuoc {
+  inset: -2% -12% auto;
+  height: 23%;
+  opacity: .65;
+  background:
+    radial-gradient(ellipse 43% 41% at 50% 80%, transparent 58%, #edffed8f 65%, transparent 78%) 12px -10px / 102px 17px repeat-x,
+    radial-gradient(ellipse 47% 41% at 50% 82%, transparent 58%, #f4ffeb70 67%, transparent 81%) 38px 2px / 146px 17px repeat-x,
+    radial-gradient(ellipse 39% 39% at 50% 80%, transparent 58%, #e4ffed59 68%, transparent 82%) 4px 14px / 129px 13px repeat-x;
+  animation: nuoc-troi 9s ease-in-out -3s infinite alternate;
+}
+.hat-sang {
+  inset: 0;
+  opacity: .53;
+  background:
+    radial-gradient(circle, #e8fff3 0 .8px, transparent 1.2px) 18px 9px / 79px 51px,
+    radial-gradient(circle, #d7fbef 0 .6px, transparent 1.1px) 37px 24px / 157px 83px;
+}
+.ran-xa {
+  inset: auto -12% 0;
+  height: 54%;
+  opacity: .57;
+  background: linear-gradient(#328f94, #226e86);
+  clip-path: polygon(0 28%, 5% 30%, 7% 26%, 12% 42%, 18% 47%, 23% 59%, 28% 57%, 33% 63%, 40% 70%, 48% 64%, 53% 62%, 57% 66%, 63% 51%, 69% 55%, 75% 40%, 80% 35%, 85% 40%, 90% 21%, 96% 15%, 100% 20%, 100% 100%, 0 100%);
+  animation: nuoc-troi 24s ease-in-out -5s infinite alternate;
+}
+.ran-gan {
+  inset: auto -10% -2%;
+  height: 40%;
+  background: linear-gradient(165deg, #236f75 6%, #215a70 65%, #18465b);
+  clip-path: polygon(0 27%, 4% 16%, 9% 23%, 13% 39%, 18% 41%, 25% 65%, 32% 68%, 39% 77%, 45% 76%, 48% 71%, 54% 76%, 62% 62%, 70% 61%, 75% 49%, 78% 47%, 83% 32%, 89% 35%, 96% 18%, 100% 25%, 100% 100%, 0 100%);
+  animation: nuoc-troi 18s ease-in-out -12s infinite alternate-reverse;
+}
+@keyframes nuoc-troi {
+  from { transform: translateX(-4%); }
+  to { transform: translateX(4%); }
+}
+
+.day-bien { position: absolute; inset: 0; pointer-events: none; }
+.cat {
+  position: absolute;
+  left: -8%; bottom: -13%;
+  width: 116%; height: 25%;
+  border-radius: 51% 46% 0 0 / 49% 41% 0 0;
+  transform: rotate(-1.5deg);
+  background:
+    radial-gradient(ellipse at 50% 50%, #896b4b78 0 1px, transparent 1.65px) 1px 2px / 31px 16px,
+    radial-gradient(circle, #eae1a9 0 1px, transparent 1.5px) 17px 11px / 39px 19px,
+    linear-gradient(178deg, #e6d6a3 8%, #c0b285 52%, #968e70);
+}
+.cat::after {
+  content: "";
+  position: absolute;
+  right: 12%; top: 16%; width: 14%; height: 6%;
+  border-bottom: 1px solid #958c6266; border-radius: 50%; transform: rotate(2deg);
+}
+.rong {
+  --la-sang: #5caa87; --la-toi: #286f69;
+  position: absolute;
+  bottom: 7%; left: 5%; width: 8%; height: 32%;
+  transform-origin: bottom center;
+  animation: rong-lac 5.5s ease-in-out -1s infinite alternate;
+}
+.rong.phai {
+  --la-sang: #88bc88; --la-toi: #318478;
+  left: auto; right: 5%; height: 27%;
+  animation-duration: 6.7s; animation-delay: -4s;
+}
+.rong i {
+  position: absolute; bottom: 0; left: 38%; height: 95%; width: 17%;
+  border-radius: 100% 0 75% 18%;
+  background: linear-gradient(100deg, var(--la-sang), var(--la-toi) 84%);
+  transform-origin: bottom;
+}
+.rong i:nth-child(1) { height: 66%; transform: rotate(-28deg); }
+.rong i:nth-child(2) { height: 91%; transform: rotate(-11deg); }
+.rong i:nth-child(3) { height: 100%; transform: rotate(5deg); }
+.rong i:nth-child(4) { height: 79%; transform: rotate(19deg); }
+.rong i:nth-child(5) { height: 60%; transform: rotate(35deg); }
+@keyframes rong-lac {
+  from { transform: skewX(-4deg); }
+  to { transform: skewX(4deg); }
+}
+
+.san-ho {
+  position: absolute; left: 1%; bottom: 5%;
+  width: 11%; height: 18%;
+  color: #e49274;
+}
+.san-ho.phai { left: auto; right: 12%; bottom: 8%; width: 6.5%; height: 12%; color: #ddb990; }
+.san-ho i, .san-ho i::before, .san-ho i::after {
+  position: absolute; display: block; background: currentColor;
+  border-radius: 90% 80% 45% 55%;
+  transform-origin: bottom center;
+}
+.san-ho i { bottom: 0; left: 46%; width: 9%; height: 96%; }
+.san-ho i:nth-child(1) { height: 77%; transform: rotate(-36deg); }
+.san-ho i:nth-child(2) { height: 100%; transform: rotate(-8deg); }
+.san-ho i:nth-child(3) { height: 81%; transform: rotate(26deg); }
+.san-ho i:nth-child(4) { height: 59%; transform: rotate(53deg); }
+.san-ho i::before, .san-ho i::after { content: ""; width: 76%; height: 37%; bottom: 35%; left: 6%; }
+.san-ho i::before { transform: rotate(-41deg); }
+.san-ho i::after { bottom: 53%; height: 32%; transform: rotate(39deg); }
+
+.da {
+  position: absolute; left: -3%; bottom: 0;
+  width: 15%; height: 9%;
+  border-radius: 56% 70% 0 0 / 90% 95% 0 0;
+  background: linear-gradient(165deg, #60978b, #3b7777 47%, #285759);
+}
+.da.phai { left: auto; right: -2%; width: 12%; height: 12%; }
+.sao-bien {
+  position: absolute; left: 26%; bottom: 3%;
+  width: 4%; aspect-ratio: 1.5; transform: rotate(-12deg);
+  background: radial-gradient(circle, #f8bd76 0 .7px, transparent 1px) 0 0 / 4px 4px, #c87851;
+  clip-path: polygon(50% 0%, 59% 33%, 98% 22%, 71% 49%, 84% 94%, 54% 67%, 26% 100%, 33% 60%, 0 45%, 39% 37%);
+}
+
+.bot { position: absolute; inset: 0; pointer-events: none; }
+.bot i {
+  position: absolute; left: var(--x); width: var(--co);
+  aspect-ratio: 1; border-radius: 50%; border: 1px solid #e3fff4a8;
+  background: radial-gradient(circle at 30% 23%, #f4fff4 0 8%, transparent 14%);
+  animation: noi-bot var(--nhip) linear var(--tre) infinite;
+}
+@keyframes noi-bot {
+  0% { top: 94%; opacity: 0; transform: translateX(0); }
+  12% { opacity: .8; }
+  65% { transform: translateX(7px); }
+  100% { top: -3%; opacity: 0; transform: translateX(-5px); }
+}
+@media (max-width: 620px) {
+  .khung-bien, .bia .khung-bien { aspect-ratio: 1.65; }
+}

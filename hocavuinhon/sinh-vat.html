@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cá mập, rùa, đàn cá vàng và đàn cá xanh bơi ngang mặt cắt của biển. Mỗi nhóm quay đầu khi tới thành bể.">
+  <title>Sinh vật biển · Hải Lưu</title>
+  <link rel="stylesheet" href="css/giao-dien.css">
+  <link rel="stylesheet" href="css/canh-bien.css">
+  <link rel="stylesheet" href="css/chuyen-dong.css">
+  <link rel="stylesheet" href="css/dieu-khien.css">
+  <script src="js/dieu-khien.js" defer></script>
+</head>
+<body>
+  <header class="dau-trang">
+    <div class="boc thanh-dieu-huong">
+      <a class="thuong-hieu" href="index.html" aria-label="Hải Lưu – Trang chủ">
+        <span class="dau-song" aria-hidden="true"><i></i></span>Hải Lưu
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="toan-canh.html">Toàn cảnh</a>
+        <a href="tho-lan.html">Thợ lặn</a>
+        <a href="sinh-vat.html" aria-current="page">Sinh vật biển</a>
+      </nav>
+      <div class="dieu-khien" role="group" aria-label="Điều khiển thủy cung">
+        <button type="button" id="doi-canh" aria-controls="dai-duong" title="Cảnh hiện tại: Rạn san hô">Đổi cảnh</button>
+        <button type="button" id="nut-nhac" aria-controls="nhac-bien">Phát nhạc</button>
+        <span id="bao-dieu-khien" class="an-thi-giac" role="status"></span>
+      </div>
+      <audio id="nhac-bien" src="audio/nhac-bien.mp3" preload="none" loop></audio>
+    </div>
+  </header>
+  <main class="boc">
+    <header class="mo-canh">
+      <h1>Những <em>sinh vật biển.</em></h1>
+      <p>Quan sát hai mép khung để thấy cá mập quay đầu sớm hơn rùa biển.</p>
+    </header>
+    <figure class="be">
+      <input class="nut-dung an-thi-giac" type="checkbox" id="dung-hinh" aria-controls="dai-duong">
+      <div class="khung-bien" id="dai-duong" role="img" aria-label="Cá mập, rùa, đàn cá vàng và đàn cá xanh bơi ngang mặt cắt của biển. Mỗi nhóm quay đầu khi tới thành bể.">
+        <div class="tia-nang" aria-hidden="true"></div>
+        <div class="van-nuoc" aria-hidden="true"></div>
+        <div class="hat-sang" aria-hidden="true"></div>
+        <div class="ran-xa" aria-hidden="true"></div>
+        <div class="ran-gan" aria-hidden="true"></div>
+        <div class="day-bien" aria-hidden="true">
+          <div class="cat"></div>
+          <div class="rong"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="rong phai"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="san-ho"><i></i><i></i><i></i><i></i></div>
+          <div class="san-ho phai"><i></i><i></i><i></i><i></i></div>
+          <div class="da"></div><div class="da phai"></div><div class="sao-bien"></div>
+        </div>
+        <div class="bot" aria-hidden="true">
+          <i style="--x: 8%; --co: 5px; --nhip: 8s; --tre: -3s"></i>
+          <i style="--x: 12%; --co: 8px; --nhip: 11s; --tre: -8s"></i>
+          <i style="--x: 23%; --co: 4px; --nhip: 10s; --tre: -2s"></i>
+          <i style="--x: 39%; --co: 6px; --nhip: 9s; --tre: -5s"></i>
+          <i style="--x: 48%; --co: 4px; --nhip: 12s; --tre: -7s"></i>
+          <i style="--x: 60%; --co: 7px; --nhip: 9s; --tre: -1s"></i>
+          <i style="--x: 74%; --co: 5px; --nhip: 12s; --tre: -9s"></i>
+          <i style="--x: 83%; --co: 4px; --nhip: 10s; --tre: -4s"></i>
+          <i style="--x: 91%; --co: 8px; --nhip: 9s; --tre: -7s"></i>
+        </div>
+        <div class="nhan-vat dan-ca-xa">
+          <img src="images/faintSchool.webp" alt="Đàn cá xanh ở xa">
+        </div>
+        <div class="nhan-vat ca-map">
+          <img src="images/shark.webp" alt="Cá mập">
+        </div>
+        <div class="nhan-vat dan-ca-vang">
+          <img src="images/goldFishSchool.webp" alt="Đàn cá vàng">
+        </div>
+        <div class="nhan-vat rua-bien">
+          <img src="images/turtle.webp" alt="Rùa biển">
+        </div>
+      </div>
+      <figcaption>
+        <span class="ten-khung">Sinh vật biển</span>
+        <label for="dung-hinh">
+          <span class="dang-chay">Tạm dừng</span><span class="dang-dung">Phát tiếp</span>
+        </label>
+      </figcaption>
+    </figure>
+    <section class="ghi-chu" aria-labelledby="ghi-chu">
+      <h2 id="ghi-chu">Một vòng đi và về</h2>
+      <ul>
+        <li style="--cham: #714fb9">Cá mập · 12 giây</li>
+        <li style="--cham: #829752">Rùa biển · 30 giây</li>
+        <li style="--cham: #c48935">Cá vàng · 19 giây</li>
+        <li style="--cham: #3289a4">Đàn cá xanh · 39 giây</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

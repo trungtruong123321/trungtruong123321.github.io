@@ -1,0 +1,86 @@
+/* Mỗi nhân vật chạy hai hoạt ảnh độc lập: bơi ngang và thay đổi độ sâu. */
+.nhan-vat {
+  position: absolute;
+  left: 0;
+  top: var(--muc-nong);
+  width: var(--rong);
+  z-index: 3;
+  animation:
+    boi-ngang var(--vong-ngang) linear var(--tre-ngang) infinite,
+    lan-len-xuong var(--nhip-lan) ease-in-out var(--tre-doc) infinite alternate;
+}
+
+.nhan-vat img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Lật hình đúng lúc đổi hướng. Ảnh và khung bơi dùng chung đồng hồ. */
+  animation: quay-dau var(--vong-ngang) steps(1, end) var(--tre-ngang) infinite;
+}
+
+/* left là vị trí cạnh trái. Trừ chiều rộng của nhân vật để mũi vừa chạm tường. */
+@keyframes boi-ngang {
+  0%, 100% { left: 0; }
+  50% { left: calc(100% - var(--rong)); }
+}
+
+@keyframes quay-dau {
+  0%, 100% { transform: scaleX(var(--mat-phai, 1)); }
+  50% { transform: scaleX(var(--mat-trai, -1)); }
+}
+
+@keyframes lan-len-xuong {
+  from { top: var(--muc-nong); }
+  to   { top: var(--muc-sau); }
+}
+
+/* --vong-ngang là thời gian đi và về; --nhip-lan là thời gian lặn một chiều.
+   Giá trị trễ âm giúp các nhân vật ở các vị trí khác nhau ngay khi mở trang. */
+.tho-xanh {
+  --rong: 15%; --vong-ngang: 26s; --tre-ngang: -2.7s;
+  --muc-nong: 16%; --muc-sau: 49%; --nhip-lan: 5s; --tre-doc: -2s;
+}
+
+.tho-do {
+  --rong: 14%; --vong-ngang: 32s; --tre-ngang: -20.5s;
+  --muc-nong: 29%; --muc-sau: 57%; --nhip-lan: 7s; --tre-doc: -7.8s;
+}
+
+.tho-luc {
+  --rong: 12.5%; --vong-ngang: 29s; --tre-ngang: -7.3s;
+  --muc-nong: 12%; --muc-sau: 45%; --nhip-lan: 9s; --tre-doc: -1.2s;
+}
+
+.ca-map {
+  --rong: 19%; --vong-ngang: 12s; --tre-ngang: -6.6s;
+  --muc-nong: 7%; --muc-sau: 18%; --nhip-lan: 6s; --tre-doc: -1.2s;
+}
+
+.rua-bien {
+  --rong: 12.8%; --vong-ngang: 30s; --tre-ngang: -2.6s;
+  --muc-nong: 55%; --muc-sau: 65%; --nhip-lan: 8s; --tre-doc: -5s;
+}
+
+.dan-ca-vang {
+  --rong: 8.3%; --vong-ngang: 19s; --tre-ngang: -4.25s;
+  --muc-nong: 35%; --muc-sau: 53%; --nhip-lan: 4s; --tre-doc: -2.8s;
+}
+
+.dan-ca-xa {
+  --rong: 14%; --vong-ngang: 39s; --tre-ngang: -4.1s;
+  --muc-nong: 4%; --muc-sau: 14%; --nhip-lan: 7.5s; --tre-doc: -1.1s;
+  --mat-phai: -1; --mat-trai: 1;
+  z-index: 2;
+  opacity: .46;
+}
+
+/* Tạm dừng ở chính vị trí đang bơi; bấm lần nữa để tiếp tục. */
+.be .khung-bien, .be .khung-bien *, .be .khung-bien *::before, .be .khung-bien *::after {
+  animation-play-state: var(--trang-thai, running);
+}
+.nut-dung:checked ~ .khung-bien { --trang-thai: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .khung-bien { --trang-thai: paused; }
+  .nut-dung:checked ~ .khung-bien { --trang-thai: running; }
+}
